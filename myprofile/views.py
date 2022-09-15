@@ -8,7 +8,7 @@ from django.utils import timezone
 
 def index(request):
     context = {"images" : LanguageImage.objects.all(), "achievements" : Achievement.objects.all()}
-    return render(request, "test.html", context)
+    return render(request, "myprofile.html", context)
 def sendmsg(request):
     if request.method == 'GET':
         return render(request, "invalidmethod.html")
@@ -21,11 +21,6 @@ def sendmsg(request):
         return redirect("/profile/")
     else:
         return render(request, "invalidmethod.html")
-
-
-
-
-
 
 
 

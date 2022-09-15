@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.css">
+<body>
+				
+	<!-- 방명록-->
+    <div class="bs-docs-section clearfix" style="padding-top: 100px; padding-bottom: 30px; margin-left: 5%; margin-right: 5%;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1 id="navbars">관리자 로그인</h1>
+                </div>
+                <form action="{% url 'common:loginpage' %}" method="post">{% csrf_token %}
+                    
+                    <!-- 이메일-->
+                    <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label mt-4">
+                        아이디
+                    </label>
+                    <input type="text" class="form-control" style="width: 30%;" name="username" id="username"
+                  </div>
+                  <!-- 이메일 끝-->
+                  <!-- 메시지 내용-->
+                    <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label mt-4">
+                        비밀번호
+                    </label>
+                    <input type="password" class="form-control" style="width: 30%;" name="password" id="password" placeholder="홍길동">
+                    <button type="submit" class="btn btn-primary form-label mt-4">Submit</button>
+
+                  </div>
+                  <!-- 메시지 내용 끝-->
+                </form>
+                <!-- 방명록 폼 끝-->
+
+            </div>
+        </div>
+    </div>
+    <!-- 방명록 끝 -->
+	</body>
