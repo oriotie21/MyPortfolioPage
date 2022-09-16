@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
-app_name = 'common'
+from main import views
+app_name = 'main'
 urlpatterns = [
     path('common/', include('common.urls')),
     path('profile/',include('myprofile.urls')),
-    path('admin/', admin.site.urls),
+    path('myadmin/', include('myadmin.urls')),
+    path('', views.index)
 ]
 urlpatterns  +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

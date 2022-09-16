@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+</head>
+<body>
+<!-- 할 수 있는 언어 -->
+<div style="padding-top : 50px; padding-bottom : 50px">
+<h1> 할 수 있는 언어 목록 </h1>
+<ul>
+{% for image in images%}
+<li style="margin : 20px;"><form action="{% url 'myadmin:deletelang' image.id  %}" method="post">{%csrf_token%}<label type="text" id="item" style="margin : 10px;">{{image.content}}</label> <input type="submit" value="삭제"></form></li>
+{% endfor %}
+</ul>
+</div>
+<form action="{% url 'myadmin:addlang' %}" method="post">{% csrf_token %}
+<input type="text" id="content" name="content" style="margin-left : 20px; margin-right : 20px;" : 50px>
+<input type="submit" value="추가">
+</form>
+<!-- 할 수 있는 언어 끝 -->
+
+
+<!-- 할 수 있는 언어 -->
+<div style="padding-top : 50px; padding-bottom : 50px">
+<h1> 업적 등록 </h1>
+<ul>
+{% for achievement in achievements %}
+<li><form action="{% url 'myadmin:deleteachiv' achievement.id  %}" method="post">{% csrf_token %}<label type="text" id="content" name="content" style="margin : 10px;">{{achievement.content}}</label>
+    <label type="text" id="date" name="date" style="margin : 10px;">{{achievement.date}}</label> <input type="submit" value="삭제"></form></li>
+{% endfor %}
+</ul>
+</div>
+<form action="{% url 'myadmin:addachiv' %}" method="post">{% csrf_token %}
+
+
+<input type="text" id="content" name="content" style="margin-left : 20px; margin-right : 20px;" : 50px>
+<input type="date" id="date" name="date" value="2022-01-21" min="1970-01-01" max="2038-01-19">
+<input type="submit" value="추가"></li>
+</form>
+<!-- 할 수 있는 언어 끝 -->
+
+<!-- 할 수 있는 언어 -->
+<div style="padding-top : 50px; padding-bottom : 50px">
+<h1> 방명록 확인 </h1>
+<table>
+<thead>
+<tr>
+<th>ID</th><th>글쓴이</th><th>내용</th><th>등록시간</th><th>삭제하기</th>
+</tr>
+</thead>
+<tbody>
+{% for message in messages %}
+<tr>
+    <td>{{message.id}}</td><td>{{message.user}}</td><td>{{message.content}}</td><td>{{message.date}}</td><td><a href="{% url 'myadmin:deletemsg' message.id %}">삭제</a></td>
+</tr>
+{% endfor %}
+</body>
+</table>
+</div>
+<!-- 할 수 있는 언어 끝 -->
+
+</body>
+</html>

@@ -10,6 +10,8 @@ from django.utils import timezone
 def loginpage(request):
     
     return render(request, 'login.html')
+def index(request):
+    return redirect('myprofile:index')
 
 
 

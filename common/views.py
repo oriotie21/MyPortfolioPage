@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from myprofile.models import LanguageImage, Achievement, ContactMessage
+from myprofile.forms import ContactMsgForm
+from django.utils import timezone
+
 
 # Create your views here.
-def loginpage(request):
-    if request.method == "POST":
-        
-    else:
-        return render(request, 'login.html')
+
+def notallowed(request):
+    return render(request, "invalidmethod.html")
+
+
